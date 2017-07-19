@@ -9,10 +9,11 @@
   },
   "scripts": {
     "test": "eslint . && preact test",
-    "start": "npm run build && npm run -s serve",
+    "start": "npm run -s serve",
     "build": "preact build",
     "serve": "preact build && preact serve",
-    "dev": "preact watch"
+    "dev": "preact watch",
+    "postinstall": "npm install && npm run serve"
   },
   "keywords": [],
   "author": "",
