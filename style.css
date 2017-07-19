@@ -1,18 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Shade|Squada+One|Teko:600');
+
+/* font-family: 'Teko', sans-serif;
+font-family: 'Squada One', cursive;
+font-family: 'Bungee Inline', cursive;
+font-family: 'Bungee Shade', cursive; */
+
 html, body {
-	font: 14px/1.21 'Helvetica Neue', arial, sans-serif;
+	/* font: 14px/1.21 'Helvetica Neue', arial, sans-serif; */
+	font-family: 'Teko', sans-serif;
 	font-weight: 400;
 	color: #444;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	overflow-y: scroll;
+	margin: 0;
+	padding: 0;
 }
 
-h1 {
-	text-align: center;
-}
+
+/* Results  */
 
 .result {
-	padding: 10px;
-	margin: 10px;
-	background: white;
-	box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+	width: 100vw;
+	height: 100vh;
+	position: relative;
 }
+
+
+.text {
+	position: absolute;
+	bottom: 0;
+	z-index: 10;
+}
+
+.text p {
+	 /* position: absolute;
+	top: 30px;
+	left: 30px;
+	z-index: 10; */
+	font-size: 8rem;
+	color: #fff;   
+	padding: 0;
+	margin: 0;
+}
+
+.cover-img {
+	height: inherit;
+	width: inherit;
+  object-fit: cover;
+}
+
+.overlay {
+	background-color: greenyellow;
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	-moz-opacity: 20%;
+	-webkit-opacity: 20%;
+	z-index: 3;
+}
+
+/* Effects */
+
+.greyscale {
+	filter: grayscale(100%)
+}
+
+.blur {
+	filter: blur(5px);
+	-webkit-filter: blur(5px);   
+}
+
+.op2 {
+	opacity: 0.5;
+}
+
+ .bg-aqua:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+	 background: rgba(0,255,255, 0.5); 
+  transition: all .3s linear;
+} 
+
+.bg-yellow:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+	background: rgba(253, 238, 0, 0.5); 
+	transition: all .3s linear;
+} 
+
+.bg-orange:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+	background: rgba(255, 114, 0, 0.5); 
+	transition: all .3s linear;
+} 
+
+.bg-orange:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+	background: rgba(255, 114, 0, 0.5); 
+	transition: all .3s linear;
+} 

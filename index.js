@@ -2,23 +2,26 @@ import './style';
 import { Component } from 'preact';
 import { Result } from './result';
 
-const SEARCH = '//api.github.com/search/repositories';
+const URL = 'https://tokyo-art-scene.firebaseio.com/';
+const SEARCH = 'popular';
 
 export default class App extends Component {
 	componentDidMount() {
-		fetch(`${SEARCH}?q=preact`)
+		fetch(`${URL}${SEARCH}.json`)
 			.then( r => r.json() )
 			.then( json => {
+				const arr = Object.keys(json).map(i => json[i]);
+				console.log("JSON ", arr);
 				this.setState({
-					results: json && json.items || []
+					results: json && arr || []
 				});
+
 			});
 	}
 
 	render(props, { results=[] }) {
 		return (
 			<div>
-				<h1>Example</h1>
 				<div class="list">
 					{ results.map( result => (
 						<Result result={result} />
