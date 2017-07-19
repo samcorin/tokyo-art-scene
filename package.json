@@ -1,6 +1,6 @@
 {
   "name": "tokyo-art-scene",
-  "version": "0.8.0",
+  "version": "0.6.0",
   "description": "",
   "main": "index.js",
   "engines": {
@@ -9,8 +9,8 @@
   },
   "scripts": {
     "test": "eslint . && preact test",
-    "start": "npm run build",
-    "build": "npm run build",
+    "start": "npm run build && npm run -s serve",
+    "build": "preact build",
     "serve": "preact build && preact serve",
     "dev": "preact watch"
   },
