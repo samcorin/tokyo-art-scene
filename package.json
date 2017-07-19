@@ -12,8 +12,7 @@
     "start": "npm install && npm run -s serve",
     "build": "preact build",
     "serve": "preact build && preact serve",
-    "dev": "preact watch",
-    "postinstall": "npm install && npm run serve"
+    "dev": "preact watch"
   },
   "keywords": [],
   "author": "",
