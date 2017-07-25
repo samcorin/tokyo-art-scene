@@ -1,32 +1,48 @@
-import './style';
 import { Component } from 'preact';
-import { Result } from './result';
-
-const URL = 'https://tokyo-art-scene.firebaseio.com/';
-const SEARCH = 'popular';
+import Events from './components/Events';
+import Description from './components/Description';
+import './style';
 
 export default class App extends Component {
-	componentDidMount() {
-		fetch(`${URL}${SEARCH}.json`)
-			.then( r => r.json() )
-			.then( json => {
-				const arr = Object.keys(json).map(i => json[i]);
-				console.log("JSON ", arr);
-				this.setState({
-					results: json && arr || []
-				});
+	constructor(props) {
+    super(props);
+    this.state = {
+      width: window.innerWidth
+		}
+		
+    this.handleWindowSizeChange = this.handleWindowSizeChange.bind(this);
+  }
 
-			});
-	}
+	componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
 
-	render(props, { results=[] }) {
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange() {
+    this.setState({
+      width: window.innerWidth
+    });
+	};
+	
+	render() {
+		const isMobile = window.innerWidth <= 600;
+		console.log("ismobile: ", isMobile)
+		
 		return (
-			<div>
-				<div class="list">
-					{ results.map( result => (
-						<Result result={result} />
-					)) }
+			<div className="wrapper">
+				<div className={isMobile ? '' : 'demo'}>
+					<div className={isMobile ? 'tasMob' : 'tas'} id="mainScreen"> 
+						{!isMobile &&
+							<img src={require("./assets/android-template.png")}
+									 alt="Android Phone Template"
+									 className="phoneImg" />}
+						<Events />
+					</div>
 				</div>
+				{!isMobile && <Description />}
 			</div>
 		);
 	}
